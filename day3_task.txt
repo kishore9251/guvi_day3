@@ -1,0 +1,93 @@
+//1.How to compare two JSON have the same properties without order?
+
+
+		
+        let obj1 ={name:"person 1", age: 5};
+        let obj2 ={age: 5, name:"person 1"};
+            // console.log(Object.keys(obj1));
+            // console.log(Object.keys(obj2));
+
+            let flag = "true";
+
+        if(Object.keys(obj1).length==Object.keys(obj2).length){
+
+            for(key in obj1){
+                if(obj1[key]==obj2[key]){
+                    continue;
+                }else{
+                    flag = "false";
+                    break;
+                }
+            }
+        }
+        console.log("object is" + flag);
+
+
+
+
+2). print the flag in the XMLHttpRequest?
+
+
+		//Install the xhr2 library in the terminal
+// For that in your terminal type the following:
+// npm install xhr2
+
+
+// require the library xhr2
+let XMLHttpRequest = require('xhr2');
+
+// create an object to XMLHttpRequest class
+let xhr = new XMLHttpRequest();
+
+xhr.open('GET','https://restcountries.com/v3.1/all');
+
+xhr.onload = function() {
+    let users= JSON.parse(xhr.responseText);
+    for(let user of users){
+        console.log(user["flag"]);
+        
+    }
+    
+};
+
+xhr.send();
+
+
+
+
+
+3).print the countries names, region, subregion and population in XMLHttpRequest?
+			
+		let XMLHttpRequest = require("xhr2");
+
+let xhr = new XMLHttpRequest;
+
+xhr.open("GET",'https://restcountries.com/v3.1/all');
+
+xhr.onload= function(){
+
+    let restcountries = JSON.parse(xhr.responseText);
+
+    for(let user of restcountries){
+            console.log(user["name"]);
+            console.log(user["region"]);
+            console.log(user["subregion"]);
+            console.log(user["population"]);
+
+    }
+};
+xhr.send();
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
